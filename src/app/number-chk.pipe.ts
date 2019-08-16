@@ -9,6 +9,7 @@ export class NumberChkPipe implements PipeTransform {
 
     let retString:string = ""
 
+    //Prime
     if(args == "Prime"){
       var count:number = 0 
       console.log("Prime")
@@ -22,9 +23,26 @@ export class NumberChkPipe implements PipeTransform {
         retString = "It is Not Prime Number"
       }
     }
+
+    //Perfect
     if(args == "Perfect"){
 
+      var i:number = 1;
+      var sum:number = 0;
+
+      while(i<value){
+        if(value % i == 0)
+          sum=sum+i;
+        i++;
+      }
+      if(sum == value)
+        retString =  "Perfect Number"
+      else
+        retString =  "Not Perfect Number"
+
     }
+
+    //Even
     if(args == "Even"){
       if(value % 2 == 0){
         retString = "Even Number"
@@ -33,6 +51,8 @@ export class NumberChkPipe implements PipeTransform {
       }
 
     }
+
+    //Odd
     if(args == "Odd"){
       if(!(value % 2 == 0)){
         retString = "Odd Number"
@@ -43,5 +63,4 @@ export class NumberChkPipe implements PipeTransform {
 
     return retString;
   }
-
 }
